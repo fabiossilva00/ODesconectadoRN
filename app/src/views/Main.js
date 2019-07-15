@@ -14,6 +14,8 @@ import { existeInternet } from '../redux/reducers/mainReducer'
 
 import { relatarProblemaAPI } from '../services/relatarProblemasRequest'
 
+import { openRealm } from '../services/data/realm'
+
 class Main extends React.Component {
     constructor(props) {
         super(props)
@@ -45,6 +47,10 @@ class Main extends React.Component {
                 <Button title='Outra Tela'
                     style={styles.buttonStyle}
                     onPress={() => this.props.navigation.navigate('OutraTela')}
+                />
+                <Button title='Realm ?'
+                    style={styles.buttonStyle}
+                    onPress={() => openRealm()}
                 />
             </View>
         )
