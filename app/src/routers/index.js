@@ -5,14 +5,19 @@ import {
 } from 'react-navigation'
 
 import Main from '../views/Main'
+import OutraTela from '../views/OutraTela'
+import TerceiraTela from '../views/TerceiraTela'
 
 const stackMain = createStackNavigator({
-    Main
+    Main,
+    // OutraTela,
 });
 
 const switchNavigate = createSwitchNavigator(
     {
-        stackMain
+        stackMain,
+        OutraTela,
+        TerceiraTela,
     },
     {
         initialRouteName: 'stackMain',
