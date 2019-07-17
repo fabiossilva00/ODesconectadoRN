@@ -10,6 +10,8 @@ import { connect } from 'react-redux'
 
 import NetInfo from '@react-native-community/netinfo'
 
+import Realm from 'realm'
+
 import { existeInternet } from '../redux/reducers/mainReducer'
 
 import { relatarProblemaAPI } from '../services/relatarProblemasRequest'
@@ -28,6 +30,18 @@ class Main extends React.Component {
         NetInfo.addEventListener(state => {
             this.props.existeInternet(state.isConnected)
         })
+    }
+
+    async getRealm() {
+        let o = await Realm.open()
+                        .then(realm => {
+                            let objs = realm.objects('ODesconectado')
+                            return objs
+                        })
+        for(let i = 0; i < o.length; i++) {
+            console.log(o[i].teste)
+        }
+        console.log(o)
     }
 
     render() {
@@ -51,6 +65,12 @@ class Main extends React.Component {
                 <Button title='Realm ?'
                     style={styles.buttonStyle}
                     onPress={() => openRealm()}
+                />
+                <Button title='Get ?'
+                    style={styles.buttonStyle}
+                    onPress={() => {
+                        this.getRealm()
+                    }}
                 />
             </View>
         )

@@ -15,8 +15,7 @@ export function openRealm() {
         realm.write(() => {
             realm.create('ODesconectado', {teste: 1})
         })
-        console.log('Realm', realm.objects)
+        console.log('Realm', realm.objects('ODesconectado'))
         return realm
     })
 }
-

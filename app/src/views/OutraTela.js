@@ -13,7 +13,7 @@ class OutraTela extends React.Component {
         const { isConnect } = this.props
 
         return (
-            <View style={{justifyContent: 'space-between', alignItems: 'center'}}>
+            <View style={{justifyContent: 'center', alignItems: 'center'}}>
                 <Text>{isConnect ? 'Com': 'Sem'} Internet</Text>
                 <Button title='Voltar'
                     onPress={() => this.props.navigation.navigate('Main')}

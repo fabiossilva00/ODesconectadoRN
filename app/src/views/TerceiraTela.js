@@ -9,7 +9,7 @@ class TerceiraTela extends React.Component {
 
     render() {
         return (
-            <View>
+            <View style={{alignItems: 'center', justifyContent: 'center'}}>
                 <Button title='Voltar'
                     onPress={() => this.props.navigation.navigate('OutraTela')}
                 />
